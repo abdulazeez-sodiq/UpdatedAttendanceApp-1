@@ -1,1 +1,1 @@
-web: waitess ATTENDANCEAPP.asgi
+web: waitress-serve --listen=*:8000 ATTENDANCEAPP.asgi:application
