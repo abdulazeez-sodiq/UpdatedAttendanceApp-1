@@ -1,2 +1,2 @@
 #web: 
-waitress-serve --listen=*:8000 ATTENDANCEAPP.wsgi:application
+waitress-serve --listen=*:$PORT ATTENDANCEAPP.wsgi:application
