@@ -1,1 +1,1 @@
-web: gunicorn ATTENDANCEAPP.asgi:application
+web: waitess ATTENDANCEAPP.asgi
