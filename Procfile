@@ -1,2 +1,2 @@
-#web: waitress-serve --listen=*:5000 ATTENDANCEAPP.asgi:application
-web: gunicorn ATTENDANCEAPP.asgi
+#web: 
+waitress-serve --listen=*:8000 ATTENDANCEAPP.wsgi:application
