@@ -1,1 +1,1 @@
-web: gunicorn ATTENDANCEAPP.asgi
+waitress-serve --listen=*:8000 ATTENDANCEAPP.asgi:application
