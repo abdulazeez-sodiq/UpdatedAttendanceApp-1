@@ -1,1 +1,1 @@
-web: waitress-serve --port=PORT ATTENDANCEAPP.asgi:application
+web: waitress-serve --port=8000 ATTENDANCEAPP.asgi:application
