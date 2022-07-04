@@ -1,0 +1,46 @@
+{% extends "MAINAPP/dashBase.html" %}
+{% block content %}
+    {% if messages %}
+    <hr>
+    <ul class="messages">
+        {% for message in messages %}
+        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <hr>
+        <br>
+        <br>
+        <div class="row">
+                <div class="col-sm-6" style="width:250px">
+                        <img src="https://cdn.pixabay.com/photo/2017/10/17/05/17/panda-2859555__480.jpg" 
+                        alt="My profile picture" height='200px' width='200px' class="rounded-circle">
+                </div>
+                <div class="col-sm-6">
+                        <h3 class="card-title" style="color: yellow;">Personal Details:</h3>
+                        <br>
+                        <div style="color: white;">
+                                <p class="card-text" ><strong>Username:</strong> {{ username }}</p>
+                                <p class="card-text" ><strong>First Name:</strong> {{ fname }}</p>
+                                <p class="card-text" ><strong>Last Name:</strong> {{ lname }}</p>
+                                <p class="card-text" ><strong>E-mail:</strong> {{ email }}</p>
+                        </div>
+                        <br>
+                        <div style="padding-left: 30px;">
+                        <a href="#" class="btn btn-primary" style="width: 150px;">Edit profile</a>
+                        </div>
+                </div>
+                </div>
+              
+          <br>
+          <br>
+          <br>
+          <br>
+    <a href="/signout" style="padding-left: 900px;"><button type="button" class="btn btn-danger" style="width: 200px;">Sign Out</button></a>
+    <hr>
+{% endblock content %}
+
+
+
+
+
