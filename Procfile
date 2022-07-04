@@ -1,1 +1,1 @@
-waitress-serve --listen=*:8000 ATTENDANCEAPP.asgi:application
+waitress-serve --listen=*:5003 ATTENDANCEAPP.asgi:application
