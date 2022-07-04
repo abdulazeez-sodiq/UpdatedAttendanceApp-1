@@ -1,1 +1,1 @@
-waitress-serve --listen=*:5003 ATTENDANCEAPP.asgi:application
+web: waitress-serve --port=$PORT ATTENDANCEAPP.asgi:application
