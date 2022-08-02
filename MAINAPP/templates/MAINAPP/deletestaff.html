@@ -3,64 +3,75 @@
 <div class="dashboard-layout">
         <div class="dashboard-floatleftA">
                 <div class="heading-h3">
-                        <a href="/terminal">TERMINAL.</a>
+                        <a href="/dashboard">SITE ADMINISTRATION</a>
+                        <div style="color: #fff; display: inline;">/</div>
+                        <a href="/register">EDIT STAFFS</a>
+                        <div style="color: #fff; display: inline;">/</div>
+                        <a href="/deletestaff">DELETE FINGER</a>
                 </div>
 
-                <div style="display: block;">
+                <!-- <div style="display: block;">
                         <div class="odd-line">
                                 <div style="padding-left: 10px;">
                                         <table style="width: 100%;">
                                                 <tr>
                                                         <th style="width: 600px;">
-                                                                <p>STATUS:</p>
+                                                                <p>Add new finger</p>
                                                         </th>
 
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <p><strong style="color: rgb(20, 20, 20); font-weight: 550;">{{ processStatus }}</strong></p>
+                                                        <td style="text-align: center; width: 90px;">
+                                                                <a href="/scan" style="float: right;" class="submit-row"><input type="submit"
+                                                                        value="scan"></a>
                                                         </td>
                                                 </tr>
                                         </table>
 
                                 </div>
                         </div>
-                </div>
+                </div> -->
 
                 <div style="display: block;">
                         <div class="even-line">
                                 <div style="padding-left: 10px;">
-                                        <table style="width: 100%;">
-                                                <tr>
-                                                        <th style="width: 600px;">
-                                                                <p>Start process</p>
-                                                        </th>
+                                        <div class="my-formcontainer">
+                                                <form action="/checkforID" method="post" class="my-form"
+                                                        style="margin-top: 20px;">
+                                                        {% csrf_token %}
+                                                        <div style="display: block;">
+                                                                <label for="fullname">Name:</label>
+                                                                <select class="form-content" id="fullname"
+                                                                        name="fullname">
+                                                                        <option selected> </option>
+                                                                        {% for names in Available_users %}
+                                                                        <option value="{{ names }}">{{ names }}</option>
+                                                                        {% endfor %}
+                                                                </select>
+                                                        </div>
 
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <a href="/enable"  class="submit-row"><input type="submit"
-                                                                        value="connect"></a>
-                                                        </td>
-                                                </tr>
-                                        </table>
+                                                        <div style="padding-left: 100px;" class="submit-row">
+                                                                <input type="submit" value="check for ID">
+                                                        </div>
+                                                </form>
 
-                                </div>
-                        </div>
-                </div>
+                                                <form action="/delete" method="post" class="my-form"
+                                                        style="margin-top: 20px;">
+                                                        {% csrf_token %}
+                                                        <div style="display: block;">
+                                                                <label for="ID">ID:</label>
+                                                                <select class="form-content" id="ID" name="ID" required>
+                                                                        <!-- <option selected> </option> -->
+                                                                        {% for id in Available_ID %}
+                                                                        <option value="{{ id }}">{{ id }}</option>
+                                                                        {% endfor %}
+                                                                </select>
+                                                        </div>
+                                                        <div style="padding-left: 100px; padding-bottom: 200px;" class="submit-row">
+                                                                <input type="submit" value="delete finger">
+                                                        </div>
 
-                <div style="display: block;">
-                        <div class="odd-line">
-                                <div style="padding-left: 10px;">
-                                        <table style="width: 100%;">
-                                                <tr>
-                                                        <th style="width: 600px;">
-                                                                <p>End process</p>
-                                                        </th>
-
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <a href="/disable" class="submit-row"><input type="submit"
-                                                                        value="disconnect"></a>
-                                                        </td>
-                                                </tr>
-                                        </table>
-
+                                                        <a href="/confirmdelete">Delete all staff's fingerprint</i></a>
+                                                </form>
+                                        </div>
                                 </div>
                         </div>
                 </div>
@@ -72,7 +83,7 @@
                 <div class="side-box-control">
                         <div class="site-admin-side-box">
                                 <div class="side-box-content">
-                                        
+
                                 </div>
                         </div>
                 </div>

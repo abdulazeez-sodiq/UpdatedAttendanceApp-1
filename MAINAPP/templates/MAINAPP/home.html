@@ -1,33 +1,29 @@
 {% extends "MAINAPP/base.html" %}
 {% block content %}
-{% if messages %}
-    <hr>
-    <ul class="messages">
-        {% for message in messages %}
-        <div {% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: white;">{{ message }}</div>
-        {% endfor %}
-    </ul>
-{% endif %}
-<hr>
-<div style="float: center;">
-<h3 style="text-align:center;color: white;">Sign into your account.<br><br>
-<a href="/signin" style="padding-left: 10px;"><button type="button" class="btn btn-primary" style="width: 200px;">Sign In</button></a>
-</h3>
-<br>
-<br>
-<h3 style="text-align:center;color: white;">Register new account.<br><br>
-<a href="/signup" style="padding-left: 10px;"><button type="button" class="btn btn-primary" style="width: 200px;">Sign Up</button></a>
-</h3>
-</div>
-
-<div style="background-color: rgb(83, 69, 69);">
-    <hr>
-    <img src="https://scontent.flos2-2.fna.fbcdn.net/v/t39.30808-1/277230133_1581973962189876_7477487093979066726_n.jpg?stp=dst-jpg_s320x320&_nc_cat=111&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeGgB09C6jVXC1N_yh19C9YeTW-k2cQGfdpNb6TZxAZ92rL1H6Wb4MZXVykd5XtL0wc8eBkN5PTVtznVo_GrXpsb&_nc_ohc=N08phZjq4IAAX-PvULv&_nc_ht=scontent.flos2-2.fna&oh=00_AT9XL02h_1kekUHMKVvPQFNwDkzx5FCC0L3cKKk5NvmYLg&oe=62C44EC8"
-     alt="CEO image" height="200px" width="200px" style="padding-left:20px;">
-     <p style="color: white;">The random person who just stand here doing nothing</p>
-    <hr>
+<div style="margin-top: 100px;">
+    <div class="home-container">
+        {% if messages %}
+        <hr>
+        <ul class="messages">
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: rgb(0, 0, 0);">{{ message }}
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <hr>
+        <div style="float: center;">
+            <h3 style="text-align:center;color: rgb(0, 0, 0);">Sign into your account.<br><br>
+                <a href="/signin" style="padding-left: 10px;"><button type="button" class="btn btn-primary"
+                        style="width: 200px; background-color: rgb(0, 0, 80);">Sign In</button></a>
+            </h3>
+            <br>
+            <br>
+            <h3 style="text-align:center;color: rgb(0, 0, 0);">Register new account.<br><br>
+                <a href="/signup" style="padding-left: 10px;"><button type="button" class="btn btn-primary"
+                        style="width: 200px; background-color: rgb(0, 0, 80)">Sign Up</button></a>
+            </h3>
+        </div>
     </div>
-
-<hr>
+</div>
 {% endblock content %}
-

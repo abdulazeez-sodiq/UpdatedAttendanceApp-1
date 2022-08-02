@@ -1,0 +1,91 @@
+{% extends "MAINAPP/dashBase.html" %}
+{% block content %}
+<div class="dashboard-layout">
+    <div class="dashboard-floatleftA">
+        <div class="heading-h3">
+            <a href="/dashboard">SITE ADMINISTRATION</a>
+            <div style="color: #fff; display: inline;">/</div>
+            <a href="/showpresentstaffs">PRESENT STAFFS</a>
+        </div>
+
+        <div style="display: block;">
+            <div class="even-line">
+                <div style="padding-left: 0px; padding-right: 0px;">
+
+                    <div style="border-left: 1px solid #ddd; float: left; width: 10%;">
+                        <table  style="width: 100%;">
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <th>
+                                    <p style="text-align: center; color: rgb(39, 39, 39); font-weight: 550;">S/N</p>
+                                </th>
+                            </tr>
+
+                            {% for no in serialnumber %}
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <th>
+                                    <p style="text-align: center;">{{ no }}</p>
+                                </th>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <div style="border-left: 1px solid #ddd; float: left; width: 75%;">
+                        <table style="width: 100%;">
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <th>
+                                    <p style="text-align: center; color: rgb(39, 39, 39); font-weight: 550;">Names</p>
+                                </th>
+                            </tr>
+
+                            {% for name in presentkeys %}
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <th>
+                                    <p style="padding-left: 10px;">{{ name }}</p>
+                                </th>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+
+                    <div style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; float: left; width: 15%;">
+                        <table  style="width: 100%;">
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <th>
+                                    <p style="text-align: center; color: rgb(39, 39, 39); font-weight: 550;">ID</p>
+                                </th>
+                            </tr>
+
+                            {% for id in presentvalues %}
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="text-align: center; width: 100px;">
+                                    <p>{{ id }}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-floatleftB">
+        <!-- <div class="side-box-control">
+                        <div class="site-admin-side-box">
+                                <div class="side-box-content">
+
+                                </div>
+                        </div>
+                </div> -->
+    </div>
+
+
+    <div class="clr"></div>
+</div>
+{% endblock content %}

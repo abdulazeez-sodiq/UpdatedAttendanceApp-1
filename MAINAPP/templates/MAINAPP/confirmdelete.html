@@ -1,85 +1,62 @@
 {% extends "MAINAPP/dashBase.html" %}
 {% block content %}
 <div class="dashboard-layout">
-        <div class="dashboard-floatleftA">
-                <div class="heading-h3">
-                        <a href="/terminal">TERMINAL.</a>
-                </div>
-
-                <div style="display: block;">
-                        <div class="odd-line">
-                                <div style="padding-left: 10px;">
-                                        <table style="width: 100%;">
-                                                <tr>
-                                                        <th style="width: 600px;">
-                                                                <p>STATUS:</p>
-                                                        </th>
-
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <p><strong style="color: rgb(20, 20, 20); font-weight: 550;">{{ processStatus }}</strong></p>
-                                                        </td>
-                                                </tr>
-                                        </table>
-
-                                </div>
-                        </div>
-                </div>
-
-                <div style="display: block;">
-                        <div class="even-line">
-                                <div style="padding-left: 10px;">
-                                        <table style="width: 100%;">
-                                                <tr>
-                                                        <th style="width: 600px;">
-                                                                <p>Start process</p>
-                                                        </th>
-
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <a href="/enable"  class="submit-row"><input type="submit"
-                                                                        value="connect"></a>
-                                                        </td>
-                                                </tr>
-                                        </table>
-
-                                </div>
-                        </div>
-                </div>
-
-                <div style="display: block;">
-                        <div class="odd-line">
-                                <div style="padding-left: 10px;">
-                                        <table style="width: 100%;">
-                                                <tr>
-                                                        <th style="width: 600px;">
-                                                                <p>End process</p>
-                                                        </th>
-
-                                                        <td style="text-align: right; width: 90px;">
-                                                                <a href="/disable" class="submit-row"><input type="submit"
-                                                                        value="disconnect"></a>
-                                                        </td>
-                                                </tr>
-                                        </table>
-
-                                </div>
-                        </div>
-                </div>
-
+    <div class="dashboard-floatleftA">
+        <div class="heading-h3">
+            <a href="/dashboard">SITE ADMINISTRATION</a>
+            <div style="color: #fff; display: inline;">/</div>
+            <a href="/register">EDIT STAFFS</a>
+            <div style="color: #fff; display: inline;">/</div>
+            <a href="/deletestaff">DELETE FINGER</a>
         </div>
 
+        <!-- <div style="display: block;">
+                        <div class="odd-line">
+                                <div style="padding-left: 10px;">
+                                        <table style="width: 100%;">
+                                                <tr>
+                                                        <th style="width: 600px;">
+                                                                <p>Add new finger</p>
+                                                        </th>
 
-        <!-- <div class="dashboard-floatleftB">
+                                                        <td style="text-align: center; width: 90px;">
+                                                                <a href="/scan" style="float: right;" class="submit-row"><input type="submit"
+                                                                        value="scan"></a>
+                                                        </td>
+                                                </tr>
+                                        </table>
+
+                                </div>
+                        </div>
+                </div> -->
+
+        <div style="display: block;">
+            <div class="even-line">
+                <div style="padding-left: 10px;">
+                    <div class="my-form">
+                        <p style="padding: 20px 10px;">Are you sure you want to delete all staff's fingers? <a
+                                style="margin-left: 100px; margin-bottom: 50px; display: inline;" href="/deletealluser">Delete</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <div class="dashboard-floatleftB">
                 <div class="side-box-control">
                         <div class="site-admin-side-box">
                                 <div class="side-box-content">
-                                        
+
                                 </div>
                         </div>
                 </div>
         </div> -->
 
 
-        <div class="clr"></div>
+    <div class="clr"></div>
 </div>
 {% endblock content %}
 

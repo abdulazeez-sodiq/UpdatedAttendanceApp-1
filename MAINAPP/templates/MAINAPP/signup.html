@@ -1,55 +1,66 @@
 {% extends "MAINAPP/base.html" %}
 {% block content %}
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <div class="container">
+<div style="margin-top: 80px;">
+    <div class="signing-container">
         <div>
-        <hr>
-        <h4 style="color: green; padding-left:10px; font-family:Arial, Helvetica, sans-serif ;">Fill the below form to register:</h4>
-        <hr>
+            <h4>Terminal Interface
+            </h4>
+            <!-- #f5dd5d -->
         </div>
-        <form action="/signup" method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                <label form="fname" class="form-label" style="color: white;">First Name:</label>
-                <input type="text" class="form-control" id="fname" name="fname"  placeholder="Ronaldo" style="width: 400px;" required>
-            </div>
-
-            <div class="mb-3">
-                <label form="lname" class="form-label" style="color: white;">Last Name:</label>
-                <input type="text" class="form-control" id="lname" name="lname" placeholder="Christiano" style="width: 400px;" required>
-            </div>
-
-            <div class="mb-3">
-                <label form="username" class="form-label" style="color: white;">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Christiano123" style="width: 400px;" required>
-            </div>
-
-            <div class="mb-3">
-                <label form="email" class="form-label" style="color: white;">Email address:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" aria-describedby="emailHelp" style="width: 400px;" required>
-               <div id="emailHelp" class="form-text" style="color: white;">We'll never share your email with anyone else.</div>
-            </div>
-
-            <div class="mb-3">
-                <label form="password" class="form-label" style="color: white;">Password:</label>
-                <input  minlength='8' type="password" class="form-control minlength='8'" id="password" name="password" placeholder="***********" style="width: 400px;" required>
-                <div id="passwordHelpBlock" class="form-text" style="color: white;">
-                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+            {% endfor %}
+        </ul>
+        <hr>
+        {% endif %}
+        <div class="my-formcontainer">
+            <form action="/signin" method="post" class="my-form">
+                {% csrf_token %}
+                <div style="float: left; width: 50%;">
+                    <label form="fname">First Name:</label>
+                    <input type="text" class="form-content" id="fname" name="fname" placeholder="Ronaldo"
+                        style="width: 170px;" required>
                 </div>
-            </div>
 
-            <div class="mb-3">
-                <label m="password2" class="form-label" style="color: white;">Confirm password:</label>
-                <input  minlength='8' type="password" class="form-control minlength='8'" id="password2" name="password2" placeholder="***********" style="width: 400px;" required>
-            </div>
+                <div style="float: left; width: 50%;">
+                    <label form="lname">Last Name:</label>
+                    <input type="text" class="form-content" id="lname" name="lname" placeholder="Christiano"
+                        style="width: 170px;" required>
+                </div>
 
-            <div class="form-floating" style="width: 400px;">
+                <div class="clr"></div>
+
+                <label form="username">Username:</label>
+                <input type="text" class="form-content" id="username" name="username" placeholder="Christiano123"
+                    required>
+
+                <label form="email">Email address:</label>
+                <input type="email" class="form-content" id="email" name="email" placeholder="example@gmail.com"
+                    aria-describedby="emailHelp" required>
+                <div id="emailHelp" class="form-text" style="color: rgb(0, 0, 0);">We'll never share your email with
+                    anyone else.</div>
+
+                <div style="width: 50%; display: inline;">
+                    <label form="password">Password:</label>
+                    <input minlength='8' type="password" class="form-content" minlength='8' id="password"
+                        name="password" placeholder="***********" style="width: 100px;" required>
+                    <div id="passwordHelpBlock" class="form-text" style="color: rgb(0, 0, 0);">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                        spaces, special characters, or emoji.
+                    </div>
+                </div>
+
+                <div style="width: 50%; display: inline;">
+                    <label m="password2">Confirm password:</label>
+                    <input minlength='8' type="password" class="form-content" minlength='8' id="password2"
+                        name="password2" placeholder="***********" style="width: 100px;" required>
+                </div>
+
+                <div class="clr"></div>
+
+                <label for="floatingSelect">How did you hear about us:</label>
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
                     <option selected> </option>
                     <option value="1">Social media</option>
@@ -57,53 +68,17 @@
                     <option value="3">From a friend</option>
                     <option value="4">From a marketer</option>
                 </select>
-                <label for="floatingSelect">How did you hear about us:</label>
-            </div>
 
-            <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="agree" name="agree" required>
-                <label class="form-check-label" form="agree" style="color: white;">Agree to terms and conditions</label>
-            </div>
+                <label class="form-check-label" form="agree" style="color: rgb(32, 28, 255);">Agree to terms and
+                    conditions</label>
 
-            <br>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-          </form>
+                <div class="submit-row">
+                    <input type="submit" value="Sign Up">
+                </div>
+            </form>
+        </div>
+        <p>Already have an account? Click this <a href="/signin">link</a> to sign in.</p>
     </div>
-        <!--<form action="/signup" method="post">
-            {% csrf_token %}
-            <label form="fname">First Name:</label><br>
-            <input type="text" id="fname" name="fname" placeholder="Ronaldo" required>
-            <br>
-            <br>
-
-            <label form="lname">Last Name:</label><br>
-            <input type="text" id="lname" name="lname" placeholder="Christiano" required>
-            <br>
-            <br>
-
-            <label form="email">E-mail:</label><br>
-            <input type="email" id="email" name="email" placeholder="John@gmail.com" required>
-            <br>
-            <br>
-
-            <label form="username">Username:</label><br>
-            <input type="text" id="username" name="username" placeholder="(must contain letter & number)" required>
-            <br>
-            <br>
-
-            <label form="password">Password:</label><br>
-            <input minlength="8" type="password" id="password" name="password" placeholder="********" required>
-            <br>
-            <br>
-
-            <label form="password2">Confirm your password:</label><br>
-            <input minlength="8" type="password" id="password2" name="password2" placeholder="********" required>
-            <br>
-            <br>
-
-            <button type="submit" style="width:100px; height:25px; color:white; background-color: darkgreen; 
-                font-size: 10pt; border-color: black;">Sign Up</button>
-        </form>-->
-        
-        <hr>
+</div>
 {% endblock content %}

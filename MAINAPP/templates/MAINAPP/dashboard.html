@@ -1,46 +1,128 @@
 {% extends "MAINAPP/dashBase.html" %}
 {% block content %}
-    {% if messages %}
-    <hr>
-    <ul class="messages">
-        {% for message in messages %}
-        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <hr>
-        <br>
-        <br>
-        <div class="row">
-                <div class="col-sm-6" style="width:250px">
-                        <img src="https://cdn.pixabay.com/photo/2017/10/17/05/17/panda-2859555__480.jpg" 
-                        alt="My profile picture" height='200px' width='200px' class="rounded-circle">
+<div class="dashboard-layout">
+        <div class="dashboard-floatleftA">
+                <div class="heading-h3">
+                        <a href="/dashboard">SITE ADMINISTRATION.</a>
                 </div>
-                <div class="col-sm-6">
-                        <h3 class="card-title" style="color: yellow;">Personal Details:</h3>
-                        <br>
-                        <div style="color: white;">
-                                <p class="card-text" ><strong>Username:</strong> {{ username }}</p>
-                                <p class="card-text" ><strong>First Name:</strong> {{ fname }}</p>
-                                <p class="card-text" ><strong>Last Name:</strong> {{ lname }}</p>
-                                <p class="card-text" ><strong>E-mail:</strong> {{ email }}</p>
+
+                <div style="display: block;">
+                        <div class="odd-line">
+                                <div style="padding-left: 10px;">
+                                        <table style="width: 100%;">
+                                                <tr>
+                                                        <th style="width: 600px;">
+                                                                <p>Registered staff</p>
+                                                        </th>
+
+                                                        <td style="text-align: center; width: 45px;">
+                                                                <p>{{ registeredstaff }}</p>
+                                                        </td>
+
+                                                        <td style="text-align: center; width: 40px;">
+                                                                <a href="/register"><img style="padding-bottom: 4px;"
+                                                                                src="http://127.0.0.1:8000/static/admin/img/icon-changelink.svg"
+                                                                                alt=""></a>
+                                                        </td>
+                                                </tr>
+                                        </table>
+
+                                </div>
                         </div>
-                        <br>
-                        <div style="padding-left: 30px;">
-                        <a href="#" class="btn btn-primary" style="width: 150px;">Edit profile</a>
+                </div>
+ 
+                <div style="display: block;">
+                        <div class="even-line">
+                                <div style="padding-left: 10px;">
+                                        <table style="width: 100%;">
+                                                <tr>
+                                                        <th style="width: 600px;">
+                                                                <p>Present</p>
+                                                        </th>
+
+                                                        <td style="text-align: center; width: 45px;">
+                                                                <p>{{ presentstaff }}</p>
+                                                        </td>
+
+                                                        <td style="text-align: center; width: 40px;">
+                                                                <a href="showpresentstaffs"><img style="padding-bottom: 4px;"
+                                                                                src="http://127.0.0.1:8000/static/admin/img/icon-addlink.svg"
+                                                                                alt=""></a>
+                                                        </td>
+                                                </tr>
+                                        </table>
+
+                                </div>
                         </div>
                 </div>
+
+                <div style="display: block;">
+                        <div class="odd-line">
+                                <div style="padding-left: 10px;">
+                                        <table style="width: 100%;">
+                                                <tr>
+                                                        <th style="width: 600px;">
+                                                                <p>Absent</p>
+                                                        </th>
+
+                                                        <td style="text-align: center; width: 45px;">
+                                                                <p>{{ absentstaff }}</p>
+                                                        </td>
+
+                                                        <td style="text-align: center; width: 40px;">
+                                                                <a href="showabsentstaffs"><img style="padding-bottom: 4px;"
+                                                                                src="http://127.0.0.1:8000/static/admin/img/icon-addlink.svg"
+                                                                                alt=""></a>
+                                                        </td>
+                                                </tr>
+                                        </table>
+
+                                </div>
+                        </div>
                 </div>
-              
-          <br>
-          <br>
-          <br>
-          <br>
-    <a href="/signout" style="padding-left: 900px;"><button type="button" class="btn btn-danger" style="width: 200px;">Sign Out</button></a>
-    <hr>
+        </div>
+
+
+        <div class="dashboard-floatleftB">
+                <div class="side-box-control">
+                        <div class="site-admin-side-box">
+                                <div class="side-box-content">
+                                        <p class="side-box-content-heading">Details</p>
+
+                                        <ul>
+
+                                                <li>
+                                                        <div class="paragraph-control">
+                                                                <p class="info-paragraph"><strong>Name: </strong></p>
+                                                                <p class="info-paragraph" style="color:
+                                                                         rgb(75, 75, 255);">{{ fname }} {{ lname }}</p>
+                                                        </div>
+                                                </li>
+
+                                                <li>
+                                                        <div class="paragraph-control">
+                                                                <p class="info-paragraph"><strong>Username: </strong>
+                                                                </p>
+                                                                <p class="info-paragraph"
+                                                                        style="color: rgb(75, 75, 255);">{{ username }}
+                                                                </p>
+                                                        </div>
+                                                </li>
+
+                                                <li>
+                                                        <div class="paragraph-control">
+                                                                <p class="info-paragraph"><strong>Email: </strong></p>
+                                                                <p class="info-paragraph"
+                                                                        style="color: rgb(75, 75, 255);">{{ email }}</p>
+                                                        </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+
+        <div class="clr"></div>
+</div>
 {% endblock content %}
-
-
-
-
-

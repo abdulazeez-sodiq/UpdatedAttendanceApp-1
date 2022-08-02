@@ -1,52 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--https://ik.imagekit.io/ikmedia/backlit.jpg-->
-  <style>
-    .background{
-      background-image: url("https://ik.imagekit.io/ikmedia/backlit.jpg");
-      background-size: cover;
-    }
-    .backgroundhead{
-      background-image: url("https://ik.imagekit.io/ikmedia/backlit.jpg");
-      background-size: cover;
-    }
-  </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
-<body class="background">
-  <div class="backgroundhead">
-    <br>
-    <h1 style="color:white ; text-align:center;">ATTENDANCE TERMINAL</h1>
-    <br>
-    </div>
-        <nav class="nav nav-dark bg-primary" style="opacity:70% ;">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link" href="/dashboard" style="color: white;">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/terminal" style="color: white;">Terminal</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/about" style="color: white;">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/signout" style="color: white;">Sign Out</a>
-                </li>
-              </ul>
-    </nav>
-    <br>
-    <div class="container">
-    {% block content %}{% endblock %}
-    </div>
-    <br>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-</html>
+<head>
+  <style>
+    html {
+      box-sizing: border-box;
+      min-width: 800px;
+      overflow-x: hidden;
+
+    }
+
+    *,
+    ::before,
+    ::after {
+      box-sizing: inherit;
+    }
+
+    .background {
+      background-color: #fff;
+      background-size: cover;
+    }
+
+    .backgroundhead {
+      background-color: rgb(0, 0, 216);
+      background-size: cover;
+      padding-top: 15px;
+    }
+
+    .backgroundhead a {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .backgroundhead a:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    .backgroundhead h1 {
+      width: 90%;
+      margin: auto;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(255, 255, 255);
+      text-align: left;
+      font-size: 24px;
+    }
+
+    .my-container {
+      width: 95%;
+      margin: auto;
+    }
+
+    .navigation {
+      background-color: #417690;
+      padding: 12px;
+    }
+
+    .navi-bar {
+      width: 100%;
+      margin: auto;
+    }
+
+    .sec-nav{
+      float: right;
+      padding-right: 25px;
+      display: inline;
+    }
+
+    .navigation a {
+      text-align: left;
+      font-size: 13px;
+      color: rgb(255, 255, 255);
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-decoration: none;
+    }
+
+    .navigation a:hover {
+      color: #bbb;
+      border-bottom: 1px solid #bbb;
+    }
+
+    .navigation a:active {
+      color: #888;
+      border-bottom: 1px solid #888;
+    }
+
+    .in-line {
+      display: inline;
+    }
+
+    .show-case {
+      background-image: url("https://ik.imagekit.io/ikmedia/backlit.jpg");
+      /* https://thumbs.gfycat.com/TornArcticHen.webp */
+      background-size: 100% 400px;
+      background-repeat: no-repeat;
+      min-height: 300px;
+      text-align: center;
+      color: white;
+      opacity: 68%;
+    }
+
+    .show-case h2 {
+      padding-top: 80px;
+    }
+
+    .odd-line {
+      background-color: #fff;
+    }
+
+    .odd-line p {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      color: rgb(60, 60, 255);
+      font-size: 13px;
+      font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+
+    .odd-line-del {
+      background-color: #fff;
+    }
+
+    .odd-line-del p {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      color: rgb(60, 60, 255);
+      font-size: 13px;
+      font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+
+    .odd-line-del a{
+      color: rgb(255, 28, 28);
+      text-decoration: none;
+    }
+
+    .odd-line-del a:hover{
+      color: rgb(194, 0, 0);
+    }
+
+    .odd-line a{
+      text-decoration: none;
+    }
+
+    .even-line a{
+      text-decoration: none;
+    }
+
+    .even-line {
+      background-color: #f8f8f8;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .even-line p {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      color: rgb(60, 60, 255);
+      font-size: 13px;
+      font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    }
+
+    .heading-h3 {
+      background-color: #64a9cc;
+      padding: 4px;
+      margin-top: 20px;
+      border-radius: 2px;
+    }
+
+    .heading-h3 a {
+      color: #eee;
+      font-size: 14px;
+      font-weight: 550;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-left: 10px;
+      text-decoration: none;
+    }
+
+    .heading-h3 a:hover {
+      color: #eee;
+      text-decoration: underline;
+    }
+
+    .term-layout {
+      background-color: #fff;
+      border-radius: 50px;
+      /* border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px; */
+    }
+
+    .dashboard-layout {
+      background-color: #fff;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .term-heading {
+      margin-top: 15px;
+      margin-bottom: 25px;
+      color: #333;
+      padding-bottom: 15px;
+      padding-left: 10px;
+    }
+
+    .term-buttons {
+      margin-bottom: 50px;
+      padding-left: 30px;
+    }
+
+    .main-footer {
+      background-color: rgb(53, 53, 53);
+      margin-top: 100px;
+    }
+
+    .main-footer p {
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .float-left {
+      float: left;
+      width: 100%;
+    }
+
+    .float-left a {
+      font-size: 13px;
+      font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+      text-decoration: none;
+    }
+
+    .clr {
+      clear: both;
+    }
+
+    .dashboard-floatleftA {
+      float: left;
+      width: 70%;
+    }
+
+    .dashboard-floatleftA p {
+      margin-bottom: 0px;
+      color: #417690;
+      font-weight: 550;
+    }
+
+    .dashboard-floatleftB {
+      float: left;
+      width: 30%;
+    }
+
+    .dashboard-floatleftC {
+      float: none;
+      /* width: 30%; */
+    }
+
+    .site-admin-side-box {
+      background-color: #f8f8f8;
+      padding-bottom: 20px;
+    }
+
+    .side-box-content li {
+      color: #417690;
+      font-size: 16px;
+    }
+
+    .side-box-content-heading {
+      padding: 15px 20px;
+      font-size: 18px;
+      border-bottom: 1px solid #ddd;
+      color: rgb(132, 134, 255);
+      font-weight: 600;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 50px;
+    }
+
+    .info-paragraph {
+      display: inline;
+    }
+
+    .info-paragraph strong {
+      color: #666;
+    }
+
+    .paragraph-control {
+      padding-left: 5px;
+      padding-bottom: 10px;
+    }
+
+    .paragraph-control p {
+      font-size: 13px;
+    }
+
+    .my-formcontainer {
+      width: 100%;
+      margin: auto;
+      padding-top: 10px;
+    }
+
+    .my-formcontainer label {
+      font-size: 14px;
+      font-weight: normal;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-bottom: 4px;
+    }
+
+    .my-form {
+      width: 100%;
+      margin: auto;
+      /* padding: 8px; */
+      box-sizing: border-box;
+    }
+
+    .my-form a{
+      background-color: rgb(255, 66, 66);
+      transition-property: rgb(255, 66, 66);
+      transition-duration: 0.1s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+      color: white;
+      border-radius: 4px;
+      padding: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 30px;
+    }
+
+    .my-form a:hover{
+      background-color: rgb(197, 0, 0);
+      color: white;
+    }
+
+    .my-form a:active{
+      background-color: rgb(161, 0, 0);
+      color: white;
+    }
+
+    .form-content {
+      display: inline;
+      width: 40%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      height: 32px;
+      color: #111;
+      background-color: #fff;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .submit-row input[type="submit"] {
+      background: #79aec8;
+      transition-property: #79aec8;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+      /* }
+    .submit { */
+      color: #fff;
+      /* #79aec8 */
+      padding: 3px 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      vertical-align: middle;
+      font-weight: normal;
+      font-size: 13px;
+      /* margin-left: 40%; */
+    }
+
+    .submit-row input[type="submit"]:hover {
+      background: #417690;
+    }
+
+    .submit-row input[type="submit"]:active {
+      background: #004c72;
+    }
+
+    .submit-row-del input[type="submit"] {
+      background: rgb(255, 91, 91);
+      transition-property: rgb(255, 91, 91);
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+      /* }
+    .submit { */
+      color: #fff;
+      /* #79aec8 */
+      padding: 3px 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      vertical-align: middle;
+      font-weight: normal;
+      font-size: 13px;
+      /* margin-left: 40%; */
+    }
+
+    .submit-row-del input[type="submit"]:hover {
+      background:rgb(226, 0, 0);
+    }
+
+    .submit-row-del input[type="submit"]:active {
+      background: rgb(204, 0, 0);
+    }
+
+    @media(max-width:1200px) {
+      .float-left {
+        float: left;
+        width: 80%;
+        padding-left: 30px;
+      }
+
+      .float-right {
+        float: left;
+        width: 20%;
+        padding-left: 10px;
+      }
+
+      .dashboard-floatleftA {
+      float: left;
+      width: 70%;
+    }
+
+    .dashboard-floatleftB {
+      float: left;
+      width: 30%;
+    }
+
+    .dashboard-floatleftC {
+      float: none;
+      /* width: 15%; */
+    }
+
     
+    }
+
+    @media(max-width:1000px) {
+      .dashboard-floatleftA {
+      float: left;
+      width: 65%;
+    }
+
+    .dashboard-floatleftB {
+      /* float: none; */
+      width: 35%;
+      float: left;
+    }
+
+    .dashboard-floatleftC {
+      float: none;
+      width: 0%;
+    }
+
+    .navi-bar ul:nth-child(1){
+      margin-left: 0px;
+    }
+    }
+
+    @media(max-width:900px) {
+      .dashboard-floatleftA {
+      float: left;
+      width: 95%;
+    }
+
+    .dashboard-floatleftB {
+      /* float: none; */
+      width: 95%;
+      float: left;
+    }
+
+    .dashboard-floatleftC {
+      float: none;
+      width: 0%;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+    }
+
+    @media(max-width:800px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 90%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 90%;
+      display: block;
+      /* float: left; */
+    }
+
+    /* .dashboard-floatleftC {
+      float: none; 
+      width: 0%;
+    }*/
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 240px;
+      padding-right: 0px;
+      display: inline;
+    }
+    }
+
+    @media(max-width:750px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 85%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 85%;
+      display: block;
+      /* float: left; */
+    }
+
+    /* .dashboard-floatleftC {
+      float: none; 
+      width: 0%;
+    }*/
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 185px;
+      padding-right: 0px;
+      display: inline;
+    }
+    }
+
+    @media(max-width:700px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 80%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 80%;
+      display: block;
+      /* float: left; */
+    }
+
+    .dashboard-floatleftC {
+      /* float: left; */
+      width: 0%;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 140px;
+      padding-right: 0px;
+      display: inline;
+    }
+    }
+
+    @media(max-width:650px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 75%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 75%;
+      display: block;
+      /* float: left; */
+    }
+
+    .dashboard-floatleftC {
+      /* float: left; */
+      width: 0%;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 90px;
+      padding-right: 0px;
+      display: inline;
+    }
+    }
+
+    @media(max-width:600px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 63%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 63%;
+      /* float: left; */
+    }
+
+    .dashboard-floatleftC {
+      /* float: left; */
+      width: 0%;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .sec-nav{
+      float: none;
+      padding-left: 0px;
+      padding-right: 0px;
+      display: inline;
+    }
+
+    .navi-bar {
+      width: 100%;
+      margin-left: 150px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 530px;
+      padding-right: 0px;
+      display: inline;
+    }
+    }
+
+    @media(max-width:500px) {
+      .dashboard-floatleftA {
+      float: none;
+      width: 55%;
+      display: block;
+    }
+
+    .dashboard-floatleftB {
+      float: none;
+      width: 55%;
+      /* float: left; */
+    }
+
+    .dashboard-floatleftC {
+      /* float: left; */
+      width: 0%;
+    }
+
+    .side-box-control {
+      margin-top: 20px;
+      padding-left: 0px;
+    }
+
+    .navi-bar {
+      width: 100%;
+      margin-left: 110px;
+    }
+
+    .sec-nav{
+      float: none;
+      margin-left: 530px;
+      display: inline;
+    }
+    }
+
+  </style>
+  <!--https://ik.imagekit.io/ikmedia/backlit.jpg-->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="background">
+  <div class="navigation">
+    <div class="navi-bar">
+      <ul class="in-line">
+        <!-- <div class="float-left"> -->
+          <li class="in-line">
+            <a href=" /dashboard"
+              style="color: #f5dd5d; font-size: 20px; margin-top: 0px; 
+              padding: 0px; border-bottom: none;">TERMINAL INTERFACE</a>
+          </li>
+          <div class="sec-nav">
+            <li class="in-line">
+              <a href="/dashboard">Dashboard</a>
+            </li>
+
+            <div style="color: #fff; display: inline;">/</div>
+
+            <li class="in-line">
+              <a href="/terminal">Terminal</a>
+            </li>
+
+            <div style="color: #fff; display: inline;">/</div>
+
+            <li class="in-line">
+              <a href="/about">Help</a>
+            </li>
+
+            <div style="color: #fff; display: inline;">/</div>
+
+            <li class="in-line">
+              <a href="/signout">Sign Out</a>
+            </li>
+          </div>
+        <!-- </div> -->
+      </ul>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <!-- <section class="show-case">
+      <h2>I would like to buy a hamburger. No, we do not stop!. So you are yuri the trainer who trains.</h2>
+    </section> -->
+
+
+  <br>
+  <div class="my-container">
+    {% block content %}{% endblock %}
+  </div>
+  <br>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

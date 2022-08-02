@@ -1,52 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <style>
-    .background{
+    .background {
       background-image: url("https://thumbs.gfycat.com/TornArcticHen.webp");
       background-size: cover;
     }
-    .backgroundBody{
-      background-image: url("https://thumbs.gfycat.com/TornArcticHen.webp");
+
+    .backgroundBody {
+      background-color: #f8f8f8;
       background-size: cover;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    ::before,
+    ::after {
+      box-sizing: inherit;
+    }
+
+    .backgroundhead {
+      background-color: rgb(0, 0, 197);
+      padding-top: 15px;
+    }
+
+    .backgroundhead h1 {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(255, 255, 255);
+      text-align: left;
+      font-size: 24px;
+      padding-left: 20px;
+    }
+
+    .backgroundhead a {
+      width: 90%;
+      margin: auto;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .backgroundhead a:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    .my-container {
+      width: 80%;
+      margin: auto;
+    }
+
+    .navigation {
+      background-color: rgb(0, 0, 197);
+      padding: 12px;
+    }
+
+    .navi-bar {
+      width: 93%;
+      margin: auto;
+    }
+
+    .navi-bar a {
+      padding-right: 15px;
+    }
+
+    .navigation a {
+      text-align: left;
+      font-size: 16px;
+      color: rgb(255, 255, 255);
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-decoration: none;
+    }
+
+    .navigation a:hover {
+      color: rgb(180, 180, 180);
+    }
+
+    .navigation a:active {
+      color: rgb(114, 114, 114);
+    }
+
+    .navigation li {
+      padding-right: 10px;
+    }
+
+    .in-line {
+      display: inline;
+    }
+
+    .show-case {
+      background-image: url("https://www.wallpaperflare.com/static/147/329/243/line-smoke-background-band-wallpaper.jpg ");
+      /* https://thumbs.gfycat.com/TornArcticHen.webp */
+      /* https://www.wallpaperflare.com/static/147/329/243/line-smoke-background-band-wallpaper.jpg */
+      background-size: 100% 400px;
+      background-repeat: no-repeat;
+      min-height: 300px;
+      text-align: center;
+      color: white;
+      opacity: 98%;
+    }
+
+    .show-case h2 {
+      padding-top: 80px;
+    }
+
+    .heading-h3 {
+      background-color: rgb(0, 0, 218);
+      padding: 8px;
+      margin-top: 20px;
+      border-radius: 20px;
+    }
+
+    .heading-h3 h3 {
+      color: #eee;
+      font-size: 22px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding-left: 10px;
+    }
+
+    .term-layout {
+      background-color: #fff;
+      border-radius: 50px;
+      /* border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px; */
+    }
+
+    .dashboard-layout {
+      background-color: #fff;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .term-heading {
+      margin-top: 15px;
+      margin-bottom: 25px;
+      color: #333;
+      padding-bottom: 15px;
+      padding-left: 10px;
+    }
+
+    .term-buttons {
+      margin-bottom: 50px;
+      padding-left: 30px;
+    }
+
+    .main-footer {
+      background-color: rgb(53, 53, 53);
+      margin-top: 100px;
+    }
+
+    .main-footer p {
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .float-left {
+      float: left;
+      width: 20%;
+    }
+
+    .float-right {
+      float: left;
+      width: 80%;
+    }
+
+    .clr {
+      clear: both;
+    }
+
+    .signing-container {
+      width: 35%;
+      margin: auto;
+      background-color: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .signing-container p {
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .signing-container a {
+      text-decoration: none;
+      font-weight: bolder;
+    }
+
+    .signing-container a:hover {
+      color: rgb(115, 115, 250);
+    }
+
+    .signing-container a:active {
+      color: rgb(0, 0, 255);
+    }
+
+    .signing-container h4 {
+      color: #ffffff;
+      font-family: sans-serif;
+      font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: normal;
+      text-align: center;
+      background-color: #417690;
+      padding: 15px 16px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+
+    .my-formcontainer {
+      width: 95%;
+      margin: auto;
+      padding-top: 10px;
+    }
+
+    .my-formcontainer label {
+      font-size: 14px;
+      font-weight: normal;
+      font-family: Arial, Helvetica, sans-serif;
+      padding-bottom: 4px;
+    }
+
+    .my-form {
+      width: 100%;
+      margin: auto;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    .form-content {
+      display: inline;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      height: 32px;
+      color: #111;
+      background-color: #fff;
+      font-size: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .submit-row input[type="submit"]{
+      background: #79aec8;
+      transition-property: #79aec8;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+    /* }
+    .submit { */
+      color: #fff;
+      /* #79aec8 */
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 0;
+      vertical-align: middle;
+      font-weight: normal;
+      font-size: 13px;
+      margin-left: 40%;
+    }
+
+    .submit-row input[type="submit"]:hover{
+      background: #417690;
+    }
+
+    .submit-row input[type="submit"]:active{
+      background: #004c72;
+    }
+
+    @media(max-width:1200px) {
+      .float-left {
+        float: left;
+        width: 75%;
+        padding-left: 30px;
+      }
+
+      .float-right {
+        float: left;
+        width: 25%;
+        padding-left: 10px;
+      }
+    }
+
+    @media(max-width:800px) {
+      .float-left {
+        float: left;
+        width: 70%;
+        padding-left: 30px;
+      }
+
+      .float-right {
+        float: left;
+        width: 30%;
+        padding-left: 10px;
+      }
+    }
+
+    @media(max-width:600px) {
+      .float-left {
+        float: left;
+        width: 60%;
+        padding-left: 30px;
+      }
+
+      .float-right {
+        float: left;
+        width: 40%;
+        padding-left: 10px;
+      }
     }
   </style>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+
 <body class="backgroundBody">
-    <div class="background">
-    <br>
-    <h1 style="color:white ; text-align:center;">ATTENDANCE TERMINAL</h1>
-    <br>
+  <!-- <div class="backgroundhead" style="background-color: rgb(61, 58, 47);">
+    <h1><img src="https://ik.imagekit.io/ikmedia/backlit.jpg" alt="Logo image"
+        style="display: in-line; height: 70px; width: 90px; padding-right: 20px; opacity: 90%; padding-bottom: 10px;"
+        srcset=""><a href="/">ATTENDANCE
+        TERMINAL</a></h1>
+  </div> -->
+  <!-- <div class="navigation backgroundhead">
+    <div class="navi-bar">
+      <ul class="in-line">
+        <div class="float-left">
+          <div>
+            <h1><a href="/">ATTENDANCE TERMINAL</a></h1>
+          </div>
+        </div>
+        <div class="float-right">
+          <div style="float: right;">
+          <li class="in-line">
+            <a href="/">Home</a>
+          </li>
+          <li class="in-line">
+            <a href="/about2">About</a>
+          </li>
+          <li class="in-line">
+            <a href="/signup">Sign Up</a>
+          </li>
+          <li class="in-line">
+            <a href="/signin">Sign In</a>
+          </li>
+        </div>
+        </div>
+      </ul>
     </div>
-    <nav class="nav nav-dark bg-primary" style="opacity:70% ;">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link" href="/" style="color: white;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about2" style="color: white;">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup" style="color: white;">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signin" style="color: white;">Sign In</a>
-            </li>
-          </ul>
-    </nav>
-    </h1>
-    <br>
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-    <br>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </div>
+
+  <div class="clr"></div> -->
+
+  <!-- <section class="show-case">
+    <h2>I would like to buy a hamburger. No, we do not stop!. So you are yuri the trainer who trains.</h2>
+  </section> -->
+
+  <br>
+  {% block content %}{% endblock %}
+  <br>
+
+  <!-- <footer class="main-footer">
+    <p>Copywrite &copy; 2022 ATTENDANCE TERMINAL.</p>
+  </footer> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
-    
