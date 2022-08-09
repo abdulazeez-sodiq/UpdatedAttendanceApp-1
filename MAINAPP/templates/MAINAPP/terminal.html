@@ -1,5 +1,17 @@
 {% extends "MAINAPP/dashBase.html" %}
 {% block content %}
+{% if messages %}
+<ul class="messages" style="padding-left: 0px;">
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+</ul>
+{% endif %}
+
+
 <div class="dashboard-layout">
         <div class="dashboard-floatleftA">
                 <div class="heading-h3">
@@ -16,7 +28,8 @@
                                                         </th>
 
                                                         <td style="text-align: right; width: 90px;">
-                                                                <p><strong style="color: rgb(20, 20, 20); font-weight: 550;">{{ processStatus }}</strong></p>
+                                                                <p><strong style="color: rgb(20, 20, 20);
+                                                                 font-weight: 550;">{{ processStatus }}</strong></p>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -35,8 +48,8 @@
                                                         </th>
 
                                                         <td style="text-align: right; width: 90px;">
-                                                                <a href="/enable"  class="submit-row"><input type="submit"
-                                                                        value="connect"></a>
+                                                                <a href="/enable" class="submit-row"><input
+                                                                                type="submit" value="connect"></a>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -55,8 +68,8 @@
                                                         </th>
 
                                                         <td style="text-align: right; width: 90px;">
-                                                                <a href="/disable" class="submit-row"><input type="submit"
-                                                                        value="disconnect"></a>
+                                                                <a href="/disable" class="submit-row"><input
+                                                                                type="submit" value="disconnect"></a>
                                                         </td>
                                                 </tr>
                                         </table>

@@ -410,6 +410,23 @@
       background: rgb(204, 0, 0);
     }
 
+    .view-class a{
+      background-color: rgb(89, 89, 255);
+      padding: 4px;
+      color: white;
+      border-radius: 8px;
+    }
+
+    .view-class a:hover{
+      background-color: blue;
+      color: white;
+    }
+
+    .view-class a:active{
+      background-color: rgb(0, 0, 158);
+      color: white;
+    }
+
     @media(max-width:1200px) {
       .float-left {
         float: left;
@@ -721,18 +738,18 @@
       <ul class="in-line">
         <!-- <div class="float-left"> -->
           <li class="in-line">
-            <a href=" /dashboard"
+            <a href=" /dashboardadmin"
               style="color: #f5dd5d; font-size: 20px; margin-top: 0px; 
               padding: 0px; border-bottom: none;">TERMINAL INTERFACE</a>
           </li>
           <div class="sec-nav">
             <li class="in-line">
-              <a href="/dashboard">Dashboard</a>
+              <a href="/dashboardadmin">Dashboard</a>
             </li>
 
             <div style="color: #fff; display: inline;">/</div>
 
-            <li class="in-line">
+            <!-- <li class="in-line">
               <a href="/terminal">Terminal</a>
             </li>
 
@@ -742,7 +759,7 @@
               <a href="/about">Help</a>
             </li>
 
-            <div style="color: #fff; display: inline;">/</div>
+            <div style="color: #fff; display: inline;">/</div> -->
 
             <li class="in-line">
               <a href="/signout">Sign Out</a>

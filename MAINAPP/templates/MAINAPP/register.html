@@ -8,6 +8,17 @@
                         <a href="/register">EDIT STAFFS</a>
                 </div>
 
+                {% if messages %}
+                <ul class="messages" style="padding-left: 0px;">
+                        {% for message in messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                </ul>
+                {% endif %}
+
                 <div style="display: block;">
                         <div class="odd-line">
                                 <div style="padding-left: 10px;">

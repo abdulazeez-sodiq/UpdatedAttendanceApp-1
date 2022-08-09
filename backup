@@ -131,34 +131,18 @@ def signin(request):
     global showsuccess
     global processStatus
     global connectionStatus
-    global email
 
     if request.method == "POST":
-        email = request.POST['email']
+        firmName = request.POST['firmName']
         pass1 = request.POST['password']
 
-        is_found=False
-        new_field=FIRM.objects.all()
-
-        for names in new_field:
-            temp_name=new_field.get(Name=names)
-            if temp_name.Email.lower() == email.lower():
-                is_found=True
-                break
-        if is_found==True:
-            new_field=FIRM.objects.get(Email=email)
-            firmName=new_field.Name
-        else:
-            messages.warning(request, "Invalid login credentials!")
-            return redirect('signin')
-
-        user = authenticate(username=firmName, password=pass1)
+        user = authenticate(email=email, password=pass1)
 
         if user is not None:
             login(request, user)
             # global fname
             # global lname
-            
+            global email
             # fname = user.first_name
             # lname = user.last_name
             email = user.email
@@ -169,7 +153,7 @@ def signin(request):
 
             for names in new_field:
                 temp_name=new_field.get(Name=names)
-                if temp_name.Email.lower() == email.lower():
+                if temp_name.Name.lower() == firmName.lower():
                     is_found=True
                     break
 
@@ -205,7 +189,7 @@ def dashboard(request):
     global Fn
     Fn = firmName
 
-    user = FIRM.objects.get(Email=email)
+    user = FIRM.objects.get(Name=Fn)
     staffs=user.staff_set.all()
 
     counter=0
@@ -264,7 +248,7 @@ def enable(request):
     showsuccess = 'sucess'
     messages.success(request, "Process started")
     go("")
-    new_field=FIRM.objects.get(Email=email)
+    new_field=FIRM.objects.get(Name=Fn)
     new_field.ConnectionStatus=processStatus
     new_field.save()
     return redirect('terminal')
@@ -277,7 +261,7 @@ def disable(request):
         processStatus='Ended'
         connectionStatus='diconnected'
         showsuccess = 'sucess'
-        new_field=FIRM.objects.get(Email=email)
+        new_field=FIRM.objects.get(Name=Fn)
         new_field.ConnectionStatus=processStatus
         new_field.save()
         return redirect('terminal')
@@ -301,7 +285,7 @@ def savescan(request):
         fullname= firstname + ' ' + lastname
 
         is_found=False
-        new_field=FIRM.objects.get(Email=email)
+        new_field=FIRM.objects.get(Name=Fn)
         all_staff=new_field.staff_set.all()
 
         for names in all_staff:
@@ -325,7 +309,7 @@ def scan(request):
     for i in range(1, 121):
         IDnumber.append(i)
 
-    firm_object=FIRM.objects.get(Email=email)
+    firm_object=FIRM.objects.get(Name=Fn)
     all_staffs=firm_object.staff_set.all()
 
     used_id=[]
@@ -340,10 +324,6 @@ def scan(request):
     return render(request, "MAINAPP/scan.html", {'All_users': availableID})
     
 def deletealluser(request):
-    firm_object=FIRM.objects.get(Email=email)
-    all_staffs=firm_object.staff_set.all()
-    all_staffs.delete()
-    messages.warning(request, 'All registered user has been deleted sucessfully')
     return redirect('deletestaff')
 
 def confirmdelete(request):
@@ -361,7 +341,7 @@ def checkforID(request):
             availableIDtoDelete=[]
             return redirect('deletestaff')
 
-        firm_object=FIRM.objects.get(Email=email)
+        firm_object=FIRM.objects.get(Name=Fn)
         all_staffs=firm_object.staff_set.all()
 
         availableIDtoDelete=[]
@@ -382,7 +362,7 @@ def delete(request):
         if ID == " ":
             return redirect('deletestaff')
 
-        firm_object=FIRM.objects.get(Email=email)
+        firm_object=FIRM.objects.get(Name=Fn)
         all_staffs=firm_object.staff_set.all()
         tempStaff=all_staffs.get(ID_Number=ID)
         tempStaff.delete()
@@ -392,7 +372,7 @@ def delete(request):
         return redirect('register')
 
 def deletestaff(request):
-    firm_object=FIRM.objects.get(Email=email)
+    firm_object=FIRM.objects.get(Name=Fn)
     all_staffs=firm_object.staff_set.all()
 
     staffNames=[]
@@ -419,7 +399,7 @@ def showallstaff(request):
     #     serialnumber.append(counter)
     #     counter=counter+1
 
-    user = FIRM.objects.get(Email=email)
+    user = FIRM.objects.get(Name=Fn)
     staffs=user.staff_set.all()
 
     serialnumber=[]

@@ -8,32 +8,20 @@
             <!-- #f5dd5d -->
         </div>
         {% if messages %}
-        <ul class="messages">
+        <ul class="messages" style="padding-left: 0px;">
             {% for message in messages %}
-            <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
             {% endfor %}
         </ul>
-        <hr>
         {% endif %}
         <div class="my-formcontainer">
-            <form action="/signin" method="post" class="my-form">
+            <form action="/signup" method="post" class="my-form">
                 {% csrf_token %}
-                <div style="float: left; width: 50%;">
-                    <label form="fname">First Name:</label>
-                    <input type="text" class="form-content" id="fname" name="fname" placeholder="Ronaldo"
-                        style="width: 170px;" required>
-                </div>
-
-                <div style="float: left; width: 50%;">
-                    <label form="lname">Last Name:</label>
-                    <input type="text" class="form-content" id="lname" name="lname" placeholder="Christiano"
-                        style="width: 170px;" required>
-                </div>
-
-                <div class="clr"></div>
-
-                <label form="username">Username:</label>
-                <input type="text" class="form-content" id="username" name="username" placeholder="Christiano123"
+                <label form="firmName">Firm Name:</label>
+                <input type="text" class="form-content" id="firmName" name="firmName" placeholder="Chris company limited"
                     required>
 
                 <label form="email">Email address:</label>
@@ -61,16 +49,16 @@
                 <div class="clr"></div>
 
                 <label for="floatingSelect">How did you hear about us:</label>
-                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <select class="form-select" id="floatingSelect" name="floatingSelect" aria-label="Floating label select example">
                     <option selected> </option>
-                    <option value="1">Social media</option>
-                    <option value="2">Internet</option>
-                    <option value="3">From a friend</option>
-                    <option value="4">From a marketer</option>
+                    <option value="Social media">Social media</option>
+                    <option value="Internet">Internet</option>
+                    <option value="From a friend">From a friend</option>
+                    <option value="From a marketer">From a marketer</option>
                 </select>
 
-                <input type="checkbox" class="form-check-input" id="agree" name="agree" required>
-                <label class="form-check-label" form="agree" style="color: rgb(32, 28, 255);">Agree to terms and
+                <input type="checkbox" class="form-check-input" id="Agree" name="Agree" value="Agree" required>
+                <label class="form-check-label" form="Agree" style="color: rgb(32, 28, 255);">Agree to terms and
                     conditions</label>
 
                 <div class="submit-row">

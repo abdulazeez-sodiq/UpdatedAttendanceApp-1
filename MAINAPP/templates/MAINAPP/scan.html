@@ -9,6 +9,16 @@
             <div style="color: #fff; display: inline;">/</div>
             <a href="/scan">SCAN FINGER</a>
         </div>
+        {% if messages %}
+        <ul class="messages" style="padding-left: 0px;">
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <!-- <div style="display: block;">
                         <div class="odd-line">
@@ -38,19 +48,16 @@
                             {% csrf_token %}
                             <div style="display: block;">
                                 <label form="firstname">First Name: </label>
-                                <input type="text" class="form-content" id="firstname"
-                                    name="firstname" required>
+                                <input type="text" class="form-content" id="firstname" name="firstname" required>
                             </div>
 
                             <div style="display: block;"></div>
                             <label form="lastname">Last Name: </label>
-                            <input class="form-content" type="text" id="lastname" name="lastname"
-                                required>
+                            <input class="form-content" type="text" id="lastname" name="lastname" required>
 
                             <div style="display: block;">
                                 <label for="ID">ID:</label>
-                                <select class="form-content" id="ID"
-                                    name="ID" required>
+                                <select class="form-content" id="ID" name="ID" required>
                                     <option selected> </option>
                                     {% for id in All_users %}
                                     <option value="{{ id }}">{{ id }}</option>

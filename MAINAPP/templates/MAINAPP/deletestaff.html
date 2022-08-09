@@ -9,6 +9,16 @@
                         <div style="color: #fff; display: inline;">/</div>
                         <a href="/deletestaff">DELETE FINGER</a>
                 </div>
+                {% if messages %}
+                <ul class="messages" style="padding-left: 0px;">
+                        {% for message in messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                </ul>
+                {% endif %}
 
                 <!-- <div style="display: block;">
                         <div class="odd-line">
@@ -41,7 +51,8 @@
                                                                 <label for="fullname">Name:</label>
                                                                 <select class="form-content" id="fullname"
                                                                         name="fullname">
-                                                                        <option selected> </option>
+                                                                        <option selected>Select the staff's name
+                                                                        </option>
                                                                         {% for names in Available_users %}
                                                                         <option value="{{ names }}">{{ names }}</option>
                                                                         {% endfor %}
@@ -65,7 +76,8 @@
                                                                         {% endfor %}
                                                                 </select>
                                                         </div>
-                                                        <div style="padding-left: 100px; padding-bottom: 200px;" class="submit-row">
+                                                        <div style="padding-left: 100px; padding-bottom: 200px;"
+                                                                class="submit-row">
                                                                 <input type="submit" value="delete finger">
                                                         </div>
 

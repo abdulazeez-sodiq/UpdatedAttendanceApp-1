@@ -1,4 +1,4 @@
-{% extends "MAINAPP/dashBase.html" %}
+{% extends "MAINAPP/dashBaseadmin.html" %}
 {% block content %}
 <div class="dashboard-layout">
         
@@ -8,7 +8,7 @@
 
         <div class="dashboard-floatleftA">
                 <div class="heading-h3">
-                        <a href="/dashboard">SITE ADMINISTRATION.</a>
+                        <a href="/dashboardadmin">SITE ADMINISTRATION.</a>
                 </div>
 
                 <div style="display: block;">
@@ -17,17 +17,18 @@
                                         <table style="width: 100%;">
                                                 <tr>
                                                         <th style="width: 600px;">
-                                                                <p>Registered staff</p>
+                                                                <p>Total users</p>
                                                         </th>
 
                                                         <td style="text-align: center; width: 45px;">
-                                                                <p>{{ registeredstaff }}</p>
+                                                                <!-- <p>{{ totaluser }}</p> -->
                                                         </td>
 
                                                         <td style="text-align: center; width: 40px;">
-                                                                <a href="/register"><img style="padding-bottom: 4px;"
+                                                                <!-- <a href="#"><img style="padding-bottom: 4px;"
                                                                                 src="http://127.0.0.1:8000/static/admin/img/icon-changelink.svg"
-                                                                                alt=""></a>
+                                                                                alt=""></a> -->
+                                                                        <p>{{ totaluser }}</p>
                                                         </td>
                                                 </tr>
                                         </table>
@@ -42,17 +43,17 @@
                                         <table style="width: 100%;">
                                                 <tr>
                                                         <th style="width: 600px;">
-                                                                <p>Present</p>
+                                                                <a href="/showallusers">Check all users</a>
                                                         </th>
 
                                                         <td style="text-align: center; width: 45px;">
-                                                                <p>{{ presentstaff }}</p>
+                                                                <!-- <p>{{ presentstaff }}</p> -->
                                                         </td>
 
                                                         <td style="text-align: center; width: 40px;">
-                                                                <a href="showpresentstaffs"><img style="padding-bottom: 4px;"
+                                                                <!-- <a href="showpresentstaffs"><img style="padding-bottom: 4px;"
                                                                                 src="http://127.0.0.1:8000/static/admin/img/icon-addlink.svg"
-                                                                                alt=""></a>
+                                                                                alt=""></a> -->
                                                         </td>
                                                 </tr>
                                         </table>
@@ -61,7 +62,7 @@
                         </div>
                 </div>
 
-                <div style="display: block;">
+                <!-- <div style="display: block;">
                         <div class="odd-line">
                                 <div style="padding-left: 10px;">
                                         <table style="width: 100%;">
@@ -84,7 +85,7 @@
 
                                 </div>
                         </div>
-                </div>
+                </div> -->
         </div>
 
 

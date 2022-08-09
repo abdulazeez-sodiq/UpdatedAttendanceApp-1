@@ -8,18 +8,20 @@
       <!-- #f5dd5d -->
     </div>
     {% if messages %}
-    <ul class="messages">
+    <ul class="messages" style="padding-left: 0px;">
       {% for message in messages %}
-      <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
       {% endfor %}
     </ul>
-    <hr>
     {% endif %}
     <div class="my-formcontainer">
       <form action="/signin" method="post" class="my-form">
         {% csrf_token %}
-        <label form="username">Username: </label>
-        <input type="text" class="form-content" id="username" name="username" required>
+        <label form="email">E-mail: </label>
+        <input type="email" class="form-content" id="email" name="email" required>
 
         <label form="password">Password: </label>
         <input class="form-content" minlength='8' type="password" vid="password" name="password" required>

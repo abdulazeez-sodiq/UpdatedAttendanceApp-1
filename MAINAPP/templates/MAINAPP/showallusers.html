@@ -1,13 +1,11 @@
-{% extends "MAINAPP/dashBase.html" %}
+{% extends "MAINAPP/dashBaseadmin.html" %}
 {% block content %}
 <div class="dashboard-layout">
     <div class="dashboard-floatleftA">
         <div class="heading-h3">
-            <a href="/dashboard">SITE ADMINISTRATION</a>
+            <a href="/dashboardadmin">SITE ADMINISTRATION</a>
             <div style="color: #fff; display: inline;">/</div>
-            <a href="/register">EDIT STAFFS</a>
-            <div style="color: #fff; display: inline;">/</div>
-            <a href="/showallstaff">ALL STAFFS</a>
+            <a href="/showallusers">ALL USERS</a>
         </div>
 
         <div style="display: block;">
@@ -62,7 +60,7 @@
                             {% for id in All_users %}
                             <tr style="border-bottom: 1px solid #ddd;">
                                 <td style="text-align: center; width: 100px;">
-                                    <p>{{ id.ID_Number }}</p>
+                                    <p class="view-class"><a href="#">View staffs</a></p>
                                 </td>
                             </tr>
                             {% endfor %}
